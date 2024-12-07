@@ -38,7 +38,23 @@ body {
 }
 
 .menu-item {
+  position: relative;
   font-size: 14px;
+}
+
+.menu-item a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background-color: #1364FB;
+  transition: width 0.3s ease;
+}
+
+.menu-item:hover a::after {
+  width: 100%;
 }
 
 .active-item {
@@ -51,6 +67,12 @@ body {
   padding: 10px 25px;
   border: 2px solid #1364FB;
   border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-button:hover {
+  background-color: #1364FB;
+  color: #fff;
 }
 
 .burger-toggle-label {
@@ -89,10 +111,17 @@ body {
 .get-started-button {
   color: #fff;
   background-color: #1364FB;
+  border: 2px solid #1364FB;
   padding: 15px 40px;
   border-radius: 30px;
   align-self: flex-start;
   font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.get-started-button:hover {
+  background-color: transparent;
+  color: #1364FB;
 }
 
 .left-button {
@@ -694,5 +723,21 @@ input[type="radio"] {
 
   .blog-cards {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (hover: none) {
+  .menu-item:active a::after {
+    width: 100%;
+  }
+
+  .header-button:active {
+    background-color: #1364FB;
+    color: #fff;
+  }
+
+  .get-started-button:active {
+    background-color: transparent;
+    color: #1364FB;
   }
 }
